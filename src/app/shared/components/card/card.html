@@ -1,0 +1,17 @@
+<div class="card bg-base-200 shadow-md hover:shadow-xl transition-shadow duration-200">
+  <!-- navegacion en la imageeen -->
+  <a [routerLink]="['/details', item().id]" [queryParams]="{ total: total() }" class="block">
+    <figure class="aspect-square overflow-hidden">
+      <img
+        [src]="item().image"
+        [alt]="item().name"
+        class="w-full h-full object-cover hover:opacity-80 transition-opacity"
+      />
+    </figure>
+    <h3 class="px-4 pt-2 text-lg font-semibold hover:underline">{{ item().name }}</h3>
+  </a>
+  <div class="card-body pt-1">
+    <p class="text-sm">Especie: {{ item().species }}</p>
+    <p class="text-sm">Estado: {{ item().status }}</p>
+  </div>
+</div>

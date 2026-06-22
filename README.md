@@ -1,59 +1,42 @@
-# EstudioAngular
+# Personajes de Rick y Morty
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.9.
+App pequeña hecha con Angular para practicar. Muestra una lista de personajes
+de Rick y Morty y, al hacer clic en uno, abre su detalle.
 
-## Development server
+## Qué hace
 
-To start a local development server, run:
+- Muestra personajes con su foto y su nombre.
+- Al pulsar una tarjeta (la imagen o el nombre), abre el detalle de ese personaje.
+- Cada personaje que abres queda guardado en el navegador, así la próxima vez
+  carga al instante en lugar de volver a pedirlo a internet.
 
-```bash
-ng serve
-```
+## Cómo ejecutarlo
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Necesitas tener [Node](https://nodejs.org) instalado. Luego, dentro de la carpeta
+del proyecto:
 
 ```bash
-ng generate --help
+npm install   # solo la primera vez
+npm start
 ```
 
-## Building
+Y abre http://localhost:4200 en el navegador.
 
-To build the project run:
+> Para generar la versión final lista para publicar: `npm run build`.
 
-```bash
-ng build
-```
+## De dónde salen los datos
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+De la API pública de Rick y Morty: https://rickandmortyapi.com
+Solo se leen datos; la app no crea ni borra nada en la API.
 
-## Running unit tests
+## Cómo está organizado (lo principal)
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+- `features/rickmorty/services/rick-morty.ts` → pide los datos a la API.
+- `features/rickmorty/services/character-cache.ts` → guarda y lee los personajes
+  en el navegador (localStorage).
+- `features/home/pages/home-page` → la pantalla de la lista.
+- `features/home/pages/detail-page` → la pantalla del detalle.
 
-```bash
-ng test
-```
+## Hecho con
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Angular 21, TypeScript y un poco de Tailwind para los estilos.

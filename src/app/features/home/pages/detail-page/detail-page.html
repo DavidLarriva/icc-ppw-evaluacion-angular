@@ -1,0 +1,28 @@
+<main class="p-8">
+  @if (charactersResource.isLoading()) {
+    <div class="flex justify-center py-12">
+      <span class="loading loading-spinner loading-lg"></span>
+    </div>
+  }
+  @if (charactersResource.error()) {
+    <p class="alert bg-gray-700 text-gray-100">Error al cargar el personaje.</p>
+  }
+  @if (charactersResource.hasValue()) {
+    <div class="max-w-md mx-auto">
+      <app-card [item]="charactersResource.value()!" [total]="totalNumber ?? 0" />
+      <div class="card bg-base-100 shadow-md mt-4 p-4 space-y-1">
+        <p>ID: {{ charactersResource.value()!.id }}</p>
+        <p>Nombre: {{ charactersResource.value()!.name }}</p>
+        <p>Estado: {{ charactersResource.value()!.status }}</p>
+        <p>Especie: {{ charactersResource.value()!.species }}</p>
+        <p>Género: {{ charactersResource.value()!.gender }}</p>
+        <p>Origen: {{ charactersResource.value()!.origin.name }}</p>
+        <p>Ubicación actual: {{ charactersResource.value()!.location.name }}</p>
+      </div>
+    </div>
+  }
+
+  <p class="text-center mt-6">
+    <a [routerLink]="['/']" class="btn btn-outline btn-sm">← Volver al listado</a>
+  </p>
+</main>

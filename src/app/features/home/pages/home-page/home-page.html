@@ -1,0 +1,17 @@
+<main class="p-8">
+  @if (charactersResource.isLoading()) {
+    <div class="flex justify-center py-12">
+      <span class="loading loading-spinner loading-lg"></span>
+    </div>
+  }
+  @if (charactersResource.error()) {
+    <p class="alert bg-gray-700 text-gray-100">Error al cargar.</p>
+  }
+  @if (charactersResource.hasValue()) {
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      @for (char of charactersResource.value()!.results; track char.id) {
+        <app-card [item]="char" [total]="total()" />
+      }
+    </div>
+  }
+</main>
