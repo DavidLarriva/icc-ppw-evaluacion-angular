@@ -29,7 +29,7 @@ Y abre http://localhost:4200 en el navegador.
 De la API pública de Rick y Morty: https://rickandmortyapi.com
 Solo se leen datos; la app no crea ni borra nada en la API.
 
-## Cómo está organizado (lo principal)
+## Organizacion
 
 - `features/rickmorty/services/rick-morty.ts` → pide los datos a la API.
 - `features/rickmorty/services/character-cache.ts` → guarda y lee los personajes
